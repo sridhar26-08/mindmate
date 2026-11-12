@@ -1,0 +1,21 @@
+services:
+  mongo:
+    image: mongo:7
+    volumes: [mongo-data:/data/db]
+  ai:
+    build: ./ai-service
+  api:
+    build: ./backend
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/mindmate
+      JWT_SECRET: change-this-in-production
+      CLIENT_URL: http://localhost:5173
+      AI_SERVICE_URL: http://ai:8000
+    ports: ["5000:5000"]
+    depends_on: [mongo, ai]
+  web:
+    build: ./frontend
+    ports: ["5173:80"]
+    depends_on: [api]
+volumes:
+  mongo-data:

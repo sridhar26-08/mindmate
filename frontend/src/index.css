@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    background-color: #6366f1;
+    color: #ffffff;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  input,
+  textarea,
+  select {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 shadow-sm transition outline-none dark:border-slate-700/80 dark:bg-slate-900/90 dark:text-slate-100 dark:placeholder-slate-500;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply border-brand-500 ring-2 ring-brand-500/20 dark:border-brand-500 dark:ring-brand-500/30;
+  }
+
+  button {
+    @apply rounded-xl font-medium transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-sm border border-slate-200/70 dark:bg-slate-900/90 dark:border-slate-800/80 dark:shadow-none transition-all;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition duration-200;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-brand-500/25 hover:bg-brand-500 hover:shadow-brand-500/35 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-slate-100 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800/80 transition;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 transition;
+  }
+
+  .btn-calm {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-teal-500/25 hover:bg-teal-500 transition;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide;
+  }
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
